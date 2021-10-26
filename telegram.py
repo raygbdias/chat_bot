@@ -9,7 +9,8 @@ telegram = telepot.Bot(token)
 def handle(msg):
     content_type, chat_type, chat_id = telepot.glance(msg)
     if content_type == 'text':
-        telegram.sendMessage(chat_id, msg['text'])
+        #telegram.sendMessage(chat_id, msg['text'])
+        telegram.sendMessage(chat_id, "Boa tarde")
                 
 MessageLoop(telegram, handle).run_as_thread()
 while 1:
