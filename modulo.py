@@ -6,3 +6,4 @@ outraCoisa = "Qualquer outra coisa!"
 def PegaNome():
     nome = input("Digite seu nome: ")
     print(f"Prazer em conhecer você, {nome}!")
+    

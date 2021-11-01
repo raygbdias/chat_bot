@@ -4,26 +4,28 @@ import subprocess as sp
 class Severina():
     def __init__(self, name):
         try:
-            memory = open(name+'.json', 'r')
+            memory = open(name + '.json', 'r')
         except FileNotFoundError:
-            memory = open(name+'.json', 'w')
-            memory.write('[["Severina"], {"Oi": "Olá! Qual seu nome?", "tchau": "Tchau! Tchau!"}]')
+            memory = open(name + '.json', 'w')
+            memory.write('[["Severina"], {"oi": "Olá! Qual seu nome?", "tchau": "Tchau! Tchau!", "tudo bem": "estou otima e voce"}]')
             memory.close()
-            memory = open(name+'.json', 'r')
+            memory = open(name + '.json', 'r')
         self.name = name
         self.known, self.phrases = json.load(memory)
         memory.close()
         self.historic = [None]
+        
     def listen(self, phrase=None):
         if phrase == None:
             phrase = input('>: ')
         phrase = str(phrase)
 #        phrase = phrase.lower()
-        return phrase
+        return phrase.lower()
+
     def think(self, phrase):
         if phrase in self.phrases:
             return self.phrases[phrase]
-        if phrase == 'Aprende':
+        if phrase == 'aprende':
             return 'O que você quer que eu aprenda?'
         if phrase == 'Forms':
             return "https://docs.google.com/forms/d/e/1FAIpQLSdmrdGbOZgiK6GyStj9HTBBXIji4AycF6o2ZDjsmG9udgSP2w/viewform"
@@ -48,11 +50,13 @@ class Severina():
         except:
             pass
         return 'Não entendi...'
+        
     def getName(self, name):
-        if 'Meu nome é ' in name:
-            name = name[12:]
+        if 'meu nome é ' in name:
+            name = name[11:]
         name = name.title()
         return name
+
     def answerName(self, name):
         if name in self.known:
             if name != 'Severina':
@@ -64,10 +68,12 @@ class Severina():
             self.known.append(name)
             self.saveMemory()
         return phrase + name + '!'
+    
     def saveMemory(self):
-        memory = open(self.name+'.json', 'w')
+        memory = open(self.name +'.json', 'w')
         json.dump([self.known, self.phrases], memory)
         memory.close()
+
     def speak(self, phrase):
         if 'Executa ' in phrase:
             platform = sys.platform
