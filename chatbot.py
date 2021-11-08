@@ -17,9 +17,6 @@ class Severina():
         self.historic = [None]
         
     def listen(self, phrase=None):
-        if phrase == None:
-            phrase = input('>: ')
-        phrase = str(phrase)
         return phrase.lower()
 
     def think(self, phrase):
@@ -75,18 +72,18 @@ class Severina():
 
     def answerName(self, name):
         if name in self.known:
-            if name != 'Severina':
-                phrase = 'Eaew, '
+            if name != 'Luna':
+                phrase = 'Meow, '
             else:
-                phrase = 'E se somos Severinas iguais em tudo na vida, morreremos de morte igual, mesma morte severina.'
+                phrase = 'E se somos Severinas iguais em tudo na vida, morreremos de morte igual, mesma morte severina. '
         else:
-            phrase = 'Muito prazer '
+            phrase = 'Muito prazer, '
             self.known.append(name)
             self.saveMemory()
         return phrase + name + '!'
     
     def saveMemory(self):
-        memory = open(self.name +'.json', 'w')
+        memory = open(self.name + '.json', 'w')
         json.dump([self.known, self.phrases], memory)
         memory.close()
 
