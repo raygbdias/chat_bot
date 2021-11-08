@@ -34,22 +34,7 @@ class Severina():
                 except FileNotFoundError:
                     sp.Popen(['xdg-open', link])
             if 'darwin' in platform:
-                #sp.run(['open', link], check=True)
-                #sp.call(('open', link))
-                #chrome_path = 'open -a /Applications/Google\ Chrome.app %s'
-                #webbrowser.get(chrome_path).open(link)  
-                #webbrowser.open_new(link)
-                #sp.Popen(['open',link])
-                #sp.Popen(['start', 'link'],shell = True)
-                #webbrowser.open(link, new=1)
                 webbrowser.open(link)
-                #os.system("open \"\" link")
-                #os.system("start \"\" link")
-                #webbrowser.open_new(link)
-                #sp.Popen(['open',"/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome", "link"])
-                #/Applications/Google Chrome.app
-                #/Applications/Google Chrome.app/Contents/MacOS
-                #sp.Popen("Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome")
 
         if phrase in self.phrases:
             return self.phrases[phrase]
