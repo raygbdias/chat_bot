@@ -2,13 +2,13 @@ import json, sys, os, webbrowser
 import subprocess as sp
 from subprocess import Popen
 
-class Severina():
+class Luna():
     def __init__(self, name):
         try:
             memory = open(name + '.json', 'r')
         except FileNotFoundError:
             memory = open(name + '.json', 'w')
-            memory.write('[["Severina"], {"oi": "Olá! Qual seu nome?", "tchau": "Tchau! Tchau!", "tudo bem": "estou otima e voce"}]')
+            memory.write('[["Luna"], {"oi": "Olá! Qual seu nome?", "tchau": "Tchau! Tchau!", "tudo bem": "estou otima e voce"}]')
             memory.close()
             memory = open(name + '.json', 'r')
         self.name = name

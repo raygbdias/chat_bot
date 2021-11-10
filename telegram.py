@@ -1,12 +1,12 @@
 import telepot, time, sys, json
 from telepot.loop import MessageLoop
-from chatbot import Severina
+from chatbot import Luna
 
 with open("token.json") as tkFile:
     token = json.load(tkFile)
 
 telegram = telepot.Bot(token)
-bot = Severina('luna')
+bot = Luna('luna')
 
 #telegram.getMe()
 def handle(msg):
